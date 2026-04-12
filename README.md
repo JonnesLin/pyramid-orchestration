@@ -49,18 +49,18 @@ The main agent's context stays light. Detailed work lives in files and git commi
 
 ### Claude Code
 
-Clone and copy to your plugins directory:
+Clone directly into the plugins repos directory:
 
 ```bash
-git clone https://github.com/JonnesLin/pyramid-orchestration.git
-mkdir -p ~/.claude/plugins/local
-cp -r pyramid-orchestration ~/.claude/plugins/local/pyramid-orchestration
+git clone https://github.com/JonnesLin/pyramid-orchestration.git ~/.claude/plugins/repos/pyramid-orchestration
 ```
 
 Or install just the skill (lighter, no slash command):
 ```bash
 mkdir -p ~/.claude/skills
-cp -r pyramid-orchestration/skills/pyramid-orchestration ~/.claude/skills/pyramid-orchestration
+git clone https://github.com/JonnesLin/pyramid-orchestration.git /tmp/pyramid-orchestration
+cp -r /tmp/pyramid-orchestration/skills/pyramid-orchestration ~/.claude/skills/pyramid-orchestration
+rm -rf /tmp/pyramid-orchestration
 ```
 
 Restart Claude Code after installation.
