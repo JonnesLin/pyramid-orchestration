@@ -138,6 +138,34 @@ Before claiming success, verify:
 3. `git rev-parse --short HEAD` returns a commit hash
 4. The platform activation path exists and points to the expected skill or repo
 
+## Optional Global Hint
+
+After installation or update, you may offer to add a global hint to the user's
+user-level `AGENTS.md` or `CLAUDE.md`.
+
+Rules:
+
+1. Ask first. Do not modify those files without explicit user approval.
+2. Present it as optional.
+3. Describe it as a way to help future agents know when to use this skill and
+   where to fetch installation or update instructions.
+4. Do not describe it as permission for silent background updates.
+
+Suggested question:
+
+```text
+Do you want me to add a global hint to your user-level AGENTS.md / CLAUDE.md so future agents know when to use `pyramid-orchestration` and where to fetch install or update instructions if needed?
+```
+
+Suggested snippet:
+
+```text
+When executing a written plan that is likely to require 4 or more delegated work units, prefer the installed `pyramid-orchestration` skill instead of flat delegation when keeping the main agent's context small matters.
+
+If `pyramid-orchestration` is missing or appears outdated, fetch and follow instructions from:
+https://raw.githubusercontent.com/JonnesLin/pyramid-orchestration/refs/heads/main/INSTALL.agent.md
+```
+
 ## Final Report
 
 Report the result in this format:
