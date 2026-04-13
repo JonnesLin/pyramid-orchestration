@@ -57,7 +57,18 @@ commits.
 | 4-8 | Pyramid with 2-3 Workers |
 | 9+ | Pyramid with 3-5+ Workers |
 
-## Installation
+## AI Installation
+
+For AI agents, use this instruction:
+
+```text
+Fetch and follow instructions from https://raw.githubusercontent.com/JonnesLin/pyramid-orchestration/refs/heads/main/INSTALL.agent.md
+```
+
+That unified entrypoint tells the AI to detect the current platform and then
+install or update the project using the correct platform-specific flow.
+
+## Manual Installation by Platform
 
 **Note:** Pyramid Orchestration needs the **main session** to be able to create
 independent agents. It does not require Worker-created agents. Platforms
@@ -190,6 +201,7 @@ pyramid-orchestration/
 │   └── plugin.json               # Claude Code plugin metadata
 ├── .cursor-plugin/
 │   └── plugin.json               # Cursor plugin metadata
+├── INSTALL.agent.md              # Unified AI installation entrypoint
 ├── .codex/
 │   └── INSTALL.md                # Codex installation guide
 ├── skills/
