@@ -2,7 +2,8 @@
 
 ## Prerequisites
 
-Pyramid Orchestration requires subagent support. In Codex, this means `multi_agent = true` must be enabled.
+Pyramid Orchestration requires main-session agent dispatch. In many Codex
+setups, that means `multi_agent = true` must be enabled.
 
 ## Installation
 
@@ -37,16 +38,19 @@ Restart Codex after updating.
 
 | Pyramid references | Codex equivalent |
 |---|---|
-| Agent tool (Worker dispatch) | spawn_agent |
-| Read | read_file |
-| Write | write_file |
-| Edit | apply_diff |
-| Bash | shell |
-| Grep | grep_search |
-| Glob | glob |
+| Agent tool (Worker or child dispatch) | `spawn_agent` |
+| Read | `read_file` |
+| Write | `write_file` |
+| Edit | `apply_diff` |
+| Bash | `shell` |
+| Grep | `grep_search` |
+| Glob | `glob` |
 
 ## Notes
 
-- Workers are dispatched via `spawn_agent` in Codex
-- Ensure `multi_agent = true` in your Codex config for subagent support
-- The `/pyramid` command may need to be invoked as a skill reference rather than a slash command
+- Main dispatches Workers and child agents via `spawn_agent` in Codex
+- Workers request deeper delegated work through files; they do not spawn agents
+  directly
+- Ensure your Codex config allows main-session agent dispatch
+- The `/pyramid` command may need to be invoked as a skill reference rather
+  than a slash command
