@@ -52,20 +52,24 @@ Codex conventions.
 
 Use this branch if you are running inside Claude Code.
 
-Preferred approach:
-
 1. Install or update the repo at
    `~/.claude/plugins/repos/pyramid-orchestration`
-2. Keep the full repo layout so Claude Code can use skills, commands, agents,
-   and plugin metadata together
+2. Register skills and commands so Claude Code can discover them. Claude Code
+   discovers custom slash commands from `~/.claude/commands/*.md`. Create
+   symlinks for all skills and commands shipped by this repo:
 
-Fallback approach if the current Claude Code setup only supports local skills:
+   ```bash
+   mkdir -p ~/.claude/commands
+   for f in ~/.claude/plugins/repos/pyramid-orchestration/skills/*/SKILL.md; do
+     name="$(basename "$(dirname "$f")")"
+     ln -sf "$f" ~/.claude/commands/"$name".md
+   done
+   for f in ~/.claude/plugins/repos/pyramid-orchestration/commands/*.md; do
+     ln -sf "$f" ~/.claude/commands/"$(basename "$f")"
+   done
+   ```
 
-1. Install or update the repo in a temporary or durable local path
-2. Copy or link `skills/pyramid-orchestration` into
-   `~/.claude/skills/pyramid-orchestration`
-
-Always tell the user to restart Claude Code after installation or update.
+3. Tell the user to restart Claude Code after installation or update.
 
 ### Gemini CLI
 
